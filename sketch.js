@@ -11,11 +11,13 @@ function setup() {
 
 function draw() {
   if (gameState === "gameOn") {
+    noCursor()
     background(255, 0, 50)
     incrementGameState()
     renderObjects()
     renderScore()
   } else if (gameState === "gameOver") {
+    cursor()
     renderGameOver()
   }
 }
