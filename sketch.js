@@ -1,6 +1,6 @@
-var gameState, player, sledge, monsters, animations
-var maxSledgeSpeed = 15
-var score
+let gameState, player, sledge, monsters, animations
+const maxSledgeSpeed = 15
+let score
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
@@ -32,7 +32,7 @@ function resetGame() {
   player = new Player(width / 2, height / 2)
   sledge = new Sledge(width / 2 - 50, height / 2)
   monsters = []
-  for (var i = 0; i < 15; i++) {
+  for (let i = 0; i < 15; i++) {
     monsters.push(spawnMonster())
   }
   animations = []
@@ -41,7 +41,7 @@ function resetGame() {
 function incrementGameState() {
   player.update()
   sledge.update()
-  var i = monsters.length
+  let i = monsters.length
   while (i--) {
     monsters[i].update()
     if (monsters[i].delete) {
@@ -51,7 +51,7 @@ function incrementGameState() {
   if (random() < 0.05) {
     monsters.push(spawnMonster())
   }
-  var j = animations.length
+  let j = animations.length
   while (j--) {
     animations[j].update()
     if (animations[j].delete) {
@@ -61,10 +61,10 @@ function incrementGameState() {
 }
 
 function renderObjects() {
-  animations.forEach(function(animation) {
+  animations.forEach(function (animation) {
     animation.render()
   })
-  monsters.forEach(function(monster) {
+  monsters.forEach(function (monster) {
     monster.render()
   })
   stroke(25)
